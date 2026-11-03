@@ -1,0 +1,32 @@
+# SYNTHETIC client profiles. All names, licence numbers and GSTINs are made up.
+# Owned and versioned by the CA, not by the AI. Every fact carries evidence.
+
+clients:
+  C1:
+    name: Shakti Auto Components Pvt Ltd (synthetic)
+    business: Manufacturer of automotive components; factory in Chakan, Pune with ~300 workers
+    profile_version: "2026-10-01"
+    flags: []
+    outward_categories: []
+    statutory_obligations:
+      - categories: [food_beverage, outdoor_catering]
+        law: "Factories Act 1948, s.46 - canteen required where more than 250 workers are employed"
+        evidence: "Factory licence MH/FL/2023/0457 (synthetic); headcount register Oct 2026: 312"
+
+  C2:
+    name: Brightpath Consulting LLP (synthetic)
+    business: IT consulting firm, office in Baner, Pune; ~60 staff
+    profile_version: "2026-10-01"
+    flags: []
+    outward_categories: []
+    statutory_obligations: []
+
+  C3:
+    name: Rapid Cabs Pvt Ltd (synthetic)
+    business: App-based taxi operator; fleet of ~80 cars in Pune
+    profile_version: "2026-10-01"
+    flags:
+      - flag: passenger_transport
+        evidence: "Outward supply: passenger transport by taxi, SAC 9964 (synthetic GSTR-1 summary FY 2025-26)"
+    outward_categories: []
+    statutory_obligations: []

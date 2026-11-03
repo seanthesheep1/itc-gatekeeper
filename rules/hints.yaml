@@ -1,0 +1,46 @@
+# Deterministic cross-checks on the LLM. Neither of these decides anything on its own;
+# a disagreement or a tripwire just forces human review.
+
+# HSN/SAC prefix -> expected category. ILLUSTRATIVE: verify against the current HSN/SAC schedule.
+hsn_hints:
+  "8703": passenger_vehicle
+  "8704": goods_vehicle
+  "996311": accommodation
+  "99633": food_beverage
+  "9966": vehicle_hire
+  "998714": vehicle_insurance_repair_service
+
+# Categories the HSN hint may legitimately map to interchangeably.
+hsn_equivalents:
+  food_beverage: [food_beverage, outdoor_catering]
+
+# Words that, if present, force review whenever the LLM says the line is outside 17(5).
+tripwires:
+  - innova
+  - ertiga
+  - city
+  - swift
+  - dzire
+  - creta
+  - fortuner
+  - scorpio
+  - xuv
+  - car
+  - cab
+  - taxi
+  - catering
+  - lunch
+  - dinner
+  - buffet
+  - meal
+  - food
+  - canteen
+  - dining
+  - club
+  - gymkhana
+  - gym
+  - spa
+  - salon
+  - insurance
+  - hotel
+  - room

@@ -1,0 +1,100 @@
+# Clause cards: the ONLY place the law lives in this system.
+# The LLM never sees these and never decides eligibility. The rules engine reads them.
+# A law change = edit/add a card with a new effective_from date. No retraining, no prompt change.
+#
+# Exception types understood by the engine:
+#   profile_flag          - client profile has this flag (e.g. passenger_transport)
+#   outward_same_category - client makes outward supplies of the same category
+#   statutory_obligation  - proviso: obligatory for employer to provide under any law
+#
+# Summaries are paraphrased; source of truth is the bare Act (link below).
+
+cards_version: "2026-11-02"
+source_url: "https://cbic-gst.gov.in/gst-acts.html"
+
+cards:
+  - id: CGST-17-5-a
+    citation: "CGST Act 2017, s.17(5)(a)"
+    summary: "Motor vehicles for transport of persons with approved seating capacity of not more than 13 persons (including driver) are blocked, except when used for further supply of such vehicles, transportation of passengers, or imparting training on driving."
+    effective_from: "2019-02-01"
+    last_verified_on: "2026-11-02"
+    verified_by: "candidate, self-check against bare Act (needs CA re-verification)"
+    categories: [passenger_vehicle]
+    requires_fact: seating_capacity
+    blocked_if: {fact: seating_capacity, op: "<=", value: 13}
+    exceptions:
+      - {type: profile_flag, flag: supplies_vehicles, text: "used for further supply of such vehicles"}
+      - {type: profile_flag, flag: passenger_transport, text: "used for transportation of passengers"}
+      - {type: profile_flag, flag: driving_training, text: "used for imparting training on driving"}
+
+  - id: CGST-17-5-ab
+    citation: "CGST Act 2017, s.17(5)(ab)"
+    summary: "General insurance, servicing, repair and maintenance of vehicles covered by (a)/(aa) are blocked, except where the vehicle is used for the purposes in (a), or received by a manufacturer of such vehicles or an insurer of them."
+    effective_from: "2019-02-01"
+    last_verified_on: "2026-11-02"
+    verified_by: "candidate, self-check against bare Act (needs CA re-verification)"
+    categories: [vehicle_insurance_repair_service]
+    requires_fact: seating_capacity
+    blocked_if: {fact: seating_capacity, op: "<=", value: 13}
+    exceptions:
+      - {type: profile_flag, flag: supplies_vehicles, text: "vehicle used for further supply of such vehicles"}
+      - {type: profile_flag, flag: passenger_transport, text: "vehicle used for transportation of passengers"}
+      - {type: profile_flag, flag: driving_training, text: "vehicle used for imparting training on driving"}
+      - {type: profile_flag, flag: vehicle_manufacturer, text: "received by a manufacturer of such vehicles"}
+      - {type: profile_flag, flag: general_insurer, text: "received by a supplier of general insurance for such vehicles"}
+
+  - id: CGST-17-5-b-i-hire
+    citation: "CGST Act 2017, s.17(5)(b)(i) - leasing/renting/hiring of motor vehicles"
+    summary: "Leasing, renting or hiring of motor vehicles referred to in (a) is blocked, except when used for the purposes specified in (a), or used for outward supply of the same category, or obligatory for the employer under any law."
+    effective_from: "2019-02-01"
+    last_verified_on: "2026-11-02"
+    verified_by: "candidate, self-check against bare Act (needs CA re-verification)"
+    categories: [vehicle_hire]
+    requires_fact: null   # seating usually not on hire invoices; assume <=13 car unless stated (flagged for review)
+    blocked_if: null
+    exceptions:
+      - {type: profile_flag, flag: passenger_transport, text: "used for transportation of passengers"}
+      - {type: outward_same_category, text: "used for outward supply of the same category"}
+      - {type: statutory_obligation, text: "proviso: obligatory for employer under any law"}
+
+  - id: CGST-17-5-b-i
+    citation: "CGST Act 2017, s.17(5)(b)(i)"
+    summary: "Food and beverages, outdoor catering, beauty treatment, health services, cosmetic and plastic surgery, life and health insurance are blocked, except where used for outward taxable supply of the same category or as an element of a taxable composite/mixed supply, or where obligatory for the employer under any law."
+    effective_from: "2019-02-01"
+    last_verified_on: "2026-11-02"
+    verified_by: "candidate, self-check against bare Act (needs CA re-verification)"
+    categories: [food_beverage, outdoor_catering, beauty_cosmetic, health_service, life_health_insurance]
+    requires_fact: null
+    blocked_if: null
+    exceptions:
+      - {type: outward_same_category, text: "used for outward supply of the same category / composite supply"}
+      - {type: statutory_obligation, text: "proviso: obligatory for employer under any law"}
+
+  - id: CGST-17-5-b-ii
+    citation: "CGST Act 2017, s.17(5)(b)(ii)"
+    summary: "Membership of a club, health and fitness centre is blocked, except where obligatory for the employer under any law."
+    effective_from: "2019-02-01"
+    last_verified_on: "2026-11-02"
+    verified_by: "candidate, self-check against bare Act (needs CA re-verification)"
+    categories: [club_membership, health_fitness]
+    requires_fact: null
+    blocked_if: null
+    exceptions:
+      - {type: statutory_obligation, text: "proviso: obligatory for employer under any law"}
+
+  - id: CGST-17-5-b-iii
+    citation: "CGST Act 2017, s.17(5)(b)(iii)"
+    summary: "Travel benefits extended to employees on vacation such as leave or home travel concession are blocked, except where obligatory for the employer under any law."
+    effective_from: "2019-02-01"
+    last_verified_on: "2026-11-02"
+    verified_by: "candidate, self-check against bare Act (needs CA re-verification)"
+    categories: [employee_travel_benefit]
+    requires_fact: null
+    blocked_if: null
+    exceptions:
+      - {type: statutory_obligation, text: "proviso: obligatory for employer under any law"}
+
+# Categories that are not blocked by in-scope clauses but must always be looked at by a human.
+review_always:
+  accommodation: "Hotel invoices often bundle rooms (not blocked) with food and beverages (blocked, 17(5)(b)(i)); the invoice must be split."
+  vehicle_hire: "Rent-a-cab with driver vs. passenger transport is contested ground; reviewer confirms."

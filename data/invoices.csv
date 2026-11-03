@@ -1,0 +1,24 @@
+client_id,invoice_no,supplier_gstin,supplier_name,invoice_date,description,hsn_sac,taxable_value,gst_amount
+C2,TM/2026/118,27AAHCT1111K1Z2,Sahyadri Toyota (synthetic),2026-09-12,"Toyota Innova Crysta 2.4 VX, 7-seater, for use of director",8703,2000000,560000
+C3,TM/2026/119,27AAHCT1111K1Z2,Sahyadri Toyota (synthetic),2026-09-14,"Toyota Innova Crysta 2.4 GX, 7-seater, fleet addition",8703,1900000,532000
+C2,BC/2026/0412,27AAJFB2222L1Z3,Bluestar Car Rentals (synthetic),2026-10-05,"Innova hire with driver for client visits, Pune, 4 days",996601,24000,2880
+C1,AC/1021,27AAKFA3333M1Z4,Annapurna Caterers (synthetic),2026-10-01,Canteen catering for factory workers - October 2026,996334,450000,22500
+C2,AC/1022,27AAKFA3333M1Z4,Annapurna Caterers (synthetic),2026-10-18,"Lunch buffet for team Diwali offsite, 40 pax",996334,60000,3000
+C1,TM/2026/201,27AAHCT4444N1Z5,Deccan Tata Motors (synthetic),2026-08-20,Tata Ace Gold goods carrier for finished goods dispatch,8704,600000,168000
+C2,BG/2026/77,27AAACB5555P1Z6,Bombay Gymkhana (synthetic),2026-07-01,Annual corporate membership fee FY 2026-27,9995,150000,27000
+C2,DL/88231,29AAACD6666Q1Z7,Dell India (synthetic),2026-09-30,Dell Latitude 5450 laptops x 5,8471,400000,72000
+C2,RK/OCT26,27AAAPR7777R1Z8,R K Properties (synthetic),2026-10-01,"Office rent - October 2026, Baner, Pune",997212,150000,27000
+C2,OS/5531,27AAAFO8888S1Z9,OfficeSmart Supplies (synthetic),2026-10-10,Printer toner cartridges HP 88A x 20,8443,30000,5400
+C1,HP/2026/033,27AAAFH9999T1Z0,Hydrotech Presses (synthetic),2026-03-15,Spare seals and valves for 200T hydraulic press,8412,250000,45000
+C1,LT/24/889,27AAAFL1212U1Z1,Laxmi Tools (synthetic),2024-12-10,Carbide inserts for CNC lathe,8209,80000,14400
+C2,TJ/MUM/5521,27AAACT1313V1Z2,Taj Mahal Palace Mumbai (synthetic),2026-09-25,"Room charges 2 nights + in-room dining, client meeting trip",996311,70000,12600
+C2,HC/SRV/301,27AAFCH1414W1Z3,Pune Honda Service (synthetic),2026-10-12,Periodic service and brake pad replacement - company Honda City MH12AB1234,998714,18000,3240
+C3,MS/SRV/772,27AAFCM1515X1Z4,Metro Maruti Service (synthetic),2026-10-14,"Accident repair, Swift Dzire taxi (5 seater) MH12CD5678",998714,45000,8100
+C2,EV/2026/12,27AAAFE1616Y1Z5,Eventique (synthetic),2026-10-20,Misc expenses - event,,50000,9000
+C1,SB/INV/0045,27AAAFS1717Z1Z6,Shree Bearings (synthetic),2026-09-05,Ball bearings 6205 ZZ x 500,8482,40000,7200
+C2,GY/2026/09,27AAAFG1818A1Z7,FitLife Gym (synthetic),2026-09-01,"Employee gym membership - quarterly, 10 staff",9997,60000,10800
+C1,SG/26/3,27AAAFS1919B1Z8,SafeGrip Industries (synthetic),2026-02-10,Industrial safety gloves x 1000,4015,50000,6000
+C1,HC/26/71,27AAAFH2020C1Z9,Heavylift Cranes (synthetic),2026-10-22,Hydra crane hire with operator for machine shifting,997319,35000,6300
+C2,GT/2026/44,27AAAFG2121D1Z1,Ghumakkad Tours (synthetic),2026-10-08,"Staff welfare - Goa trip for employees and families, 3 nights",998552,300000,15000
+C2,TT/2026/15,27AAAFT2222E1Z2,Sahyadri Travels (synthetic),2026-10-11,"Tempo Traveller 17-seater hire with driver for team outing",996601,18000,2160
+C2,MI/2026/601,27AAACM2323F1Z3,Suraksha General Insurance (synthetic),2026-10-02,"Group mediclaim policy - 60 employees, FY 2026-27",997133,240000,43200
